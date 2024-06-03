@@ -108,7 +108,24 @@
     <div class="container">
         {% block content %}
         <h1>Venue List</h1>
-        <a href="{% url 'venue_booking' %}" class="btn btn-primary">Book Venue</a>
+        <div class="container mt-5">
+        <div class="row">
+            {% for venue in venue %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{ venue.name }}</h5>
+                        <p class="card-text">Address : {{ venue.address }}</p>
+                        <p class="card-text">Capacity : {{ venue.capacity }}</p>
+                         <a href="{% url 'venue_booking' %}" class="btn btn-primary">Book Venue</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
         {% endblock %}
     </div>
 
